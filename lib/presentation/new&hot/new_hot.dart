@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:netflix/presentation/new&hot/widgets/comingsoon_widget.dart';
+import 'package:netflix/presentation/widgets/everyones_watching_widget.dart';
 
 class NewHot extends StatelessWidget {
   const NewHot({super.key});
@@ -56,7 +58,7 @@ class NewHot extends StatelessWidget {
         ),
         body: TabBarView(
           children: [
-            _buildComingsoon(context),
+            _buildComingsoon(),
             _buildEveryonesWatching(),
           ],
         ),
@@ -65,77 +67,17 @@ class NewHot extends StatelessWidget {
   }
 }
 
-Widget _buildComingsoon(BuildContext context) {
-  Size size = MediaQuery.of(context).size;
-  return ListView(
-    children: [
-      const SizedBox(
-        height: 10,
-      ),
-      Row(
-        children: [
-          const SizedBox(
-            width: 50,
-            height: 450,
-            child: Column(
-              children: [
-                Text(
-                  "FEB",
-                  style: TextStyle(fontSize: 16, color: Colors.grey),
-                ),
-                Text(
-                  "11",
-                  style: TextStyle(
-                      fontSize: 30,
-                      fontWeight: FontWeight.bold,
-                      letterSpacing: 5),
-                ),
-              ],
-            ),
-          ),
-          Container(
-            width: size.width - 50,
-            height: 450,
-            color: Colors.yellow,
-            child: Column(
-              children: [
-                Container(
-                  height: 200,
-                  width: double.infinity,
-                  child: Stack(
-                    children: [
-                      
-                      Image.network(
-                        "https://media.themoviedb.org/t/p/w533_and_h300_bestv2/xOMo8BRK7PfcJv9JCnx7s5hj0PX.jpg",
-                        fit: BoxFit.cover,
-                      ),
-                      Positioned(
-                        right: 10,bottom: 10,
-                        child: CircleAvatar(
-                          radius: 22,
-                          backgroundColor: Colors.black.withOpacity(0.4),
-                          child: IconButton(
-                            onPressed: () {},
-                            icon: const Icon(
-                              Icons.volume_off,
-                              color: Colors.white,
-                              size: 22,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                )
-              ],
-            ),
-          ),
-        ],
-      ),
-    ],
+Widget _buildComingsoon() {
+  return ListView.builder(
+    itemBuilder: (context, index) => const ComingSoon_Widget(),
+    itemCount: 10,
   );
 }
 
 Widget _buildEveryonesWatching() {
-  return const Text('watching');
+  return ListView.builder(
+    itemCount: 10,
+    itemBuilder: (context, index) => const EveryonesWatching_Widget(),
+  );
 }
+
