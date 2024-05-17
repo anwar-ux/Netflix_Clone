@@ -1,42 +1,44 @@
 import 'package:flutter/material.dart';
+import 'package:netflix/model/movie.dart';
 import 'package:netflix/presentation/widgets/video_widget.dart';
 
 // ignore: camel_case_types
 class EveryonesWatching_Widget extends StatelessWidget {
+  final Movie data;
   const EveryonesWatching_Widget({
-    super.key,
+    super.key, required this.data,
   });
 
   @override
   Widget build(BuildContext context) {
-    return  const Column(
+    return   Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        SizedBox(
+        const SizedBox(
           height: 10,
         ),
-        Text(
-          "DUNE 2",
-          style: TextStyle(
+         Text(
+          data.title,
+          style: const TextStyle(
             fontSize: 18,
             fontWeight: FontWeight.bold,
           ),
         ),
-        SizedBox(
+        const SizedBox(
           height: 10,
         ),
-        Text(
-          "Landing the lead in school musicalis a\ndream come true for jodi, Until the pressure sends her confidence-and her relationship-\ninto a tailspin",
-          style: TextStyle(color: Colors.grey, height: 1.5),
+         Text(
+          data.overview,
+          style: const TextStyle(color: Colors.grey, height: 1.5),
         ),
-        SizedBox(
+        const SizedBox(
           height: 50,
         ),
-        Vedio_Widget(),
-        SizedBox(
+        Vedio_Widget(image:data.imagePath ),
+        const SizedBox(
           height: 20,
         ),
-        Row(
+        const Row(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
             Column(

@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:netflix/model/movie.dart';
 import 'package:netflix/presentation/widgets/video_widget.dart';
 
-// ignore: camel_case_types
 class ComingSoon_Widget extends StatelessWidget {
-  const ComingSoon_Widget({
-    super.key,
+  Movie data;
+   ComingSoon_Widget({
+    super.key,required this.data
   });
 
   @override
@@ -12,7 +13,6 @@ class ComingSoon_Widget extends StatelessWidget {
     Size size = MediaQuery.of(context).size;
     return Row(
       children: [
-        
         const SizedBox(
           width: 50,
           height: 450,
@@ -35,25 +35,30 @@ class ComingSoon_Widget extends StatelessWidget {
         SizedBox(
           width: size.width - 50,
           height: 450,
-          child: const Column(
+          child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(
                 height: 200,
-                width: double.infinity,
-                child: Vedio_Widget(),
+                width:  size.width - 50,
+                child: Vedio_Widget(
+                  image: data.imagePath,
+                ),
               ),
-              Row(
+               Row(
                 children: [
-                  Text(
-                    "DUNE 2",
-                    style: TextStyle(
-                      fontSize: 40,
-                      fontWeight: FontWeight.bold,
+                  Flexible(
+                    child: Text(
+                      data.title,
+                      style: const TextStyle(
+                        overflow: TextOverflow.ellipsis,
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ),
-                  Spacer(),
-                  Padding(
+                  const Spacer(),
+                  const Padding(
                     padding: EdgeInsets.symmetric(horizontal: 10),
                     child: Row(
                       children: [
@@ -93,24 +98,27 @@ class ComingSoon_Widget extends StatelessWidget {
                   ),
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
-              Text("Coming on Friday"),
-              SizedBox(
+              const Text("Coming on Friday"),
+              const SizedBox(
                 height: 10,
               ),
-              Text(
-                "DUNE 2",
-                style: TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              SizedBox(
+               Flexible(
+                 child: Text(
+                  data.title,
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                    overflow: TextOverflow.fade
+                  ),
+                             ),
+               ),
+              const SizedBox(
                 height: 10,
               ),
-              Text(
+              const Text(
                 "Landing the lead in school musicalis a\ndream come true for jodi, Until the pressure sends her confidence-and her relationship-\ninto a tailspin",
                 style: TextStyle(color: Colors.grey, height: 1.5),
               )
@@ -121,5 +129,3 @@ class ComingSoon_Widget extends StatelessWidget {
     );
   }
 }
-
-

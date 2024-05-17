@@ -1,9 +1,30 @@
 import 'package:flutter/material.dart';
+import 'package:netflix/controller/api_controller.dart';
+import 'package:netflix/model/movie.dart';
 import 'package:netflix/presentation/new&hot/widgets/comingsoon_widget.dart';
 import 'package:netflix/presentation/widgets/everyones_watching_widget.dart';
 
-class NewHot extends StatelessWidget {
+class NewHot extends StatefulWidget {
   const NewHot({super.key});
+
+  @override
+  State<NewHot> createState() => _NewHotState();
+}
+
+List<Movie> nowPlaying = [];
+List<Movie> upcoming = [];
+
+Future<void> getAllMovies() async {
+  nowPlaying = await MovieServices.getNowplaying();
+  upcoming = await MovieServices.getupcoming();
+}
+
+class _NewHotState extends State<NewHot> {
+  @override
+  void initState() {
+    super.initState();
+    getAllMovies();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -69,15 +90,15 @@ class NewHot extends StatelessWidget {
 
 Widget _buildComingsoon() {
   return ListView.builder(
-    itemBuilder: (context, index) => const ComingSoon_Widget(),
-    itemCount: 10,
+    itemBuilder: (context, index) =>  ComingSoon_Widget(data:upcoming[index],),
+    itemCount: upcoming.length,
   );
 }
 
 Widget _buildEveryonesWatching() {
   return ListView.builder(
-    itemCount: 10,
-    itemBuilder: (context, index) => const EveryonesWatching_Widget(),
+    itemCount: nowPlaying.length,
+    itemBuilder: (context, index) =>  EveryonesWatching_Widget(data:nowPlaying[index],),
+    
   );
 }
-

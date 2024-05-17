@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 
+String imageBase = 'https://image.tmdb.org/t/p/w500/';
+
+// ignore: camel_case_types
 class Vedio_Widget extends StatelessWidget {
-  const Vedio_Widget({
-    super.key,
+  final String image;
+ Vedio_Widget({
+    super.key, required this.image,
   });
 
   @override
@@ -10,7 +14,7 @@ class Vedio_Widget extends StatelessWidget {
     return Stack(
       children: [
         Image.network(
-          "https://media.themoviedb.org/t/p/w533_and_h300_bestv2/xOMo8BRK7PfcJv9JCnx7s5hj0PX.jpg",
+          imageBase+image,
           fit: BoxFit.cover,
         ),
         Positioned(
