@@ -3,8 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class MainCardNumber extends StatelessWidget {
-  const MainCardNumber({super.key, required this.index});
+  const MainCardNumber({super.key, required this.index, required this.image});
   final int index;
+  final String image;
 
   @override
   Widget build(BuildContext context) {
@@ -19,12 +20,12 @@ class MainCardNumber extends StatelessWidget {
             Container(
               width: 130,
               height: 200,
-              decoration: const BoxDecoration(
+              decoration:  BoxDecoration(
                 borderRadius: BorderRadius.all(Radius.circular(5)),
                 image: DecorationImage(
                   fit: BoxFit.cover,
                   image: NetworkImage(
-                    "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/upKD8UbH8vQ798aMWgwMxV8t4yk.jpg",
+                    image,
                   ),
                 ),
               ),
@@ -40,14 +41,14 @@ class MainCardNumber extends StatelessWidget {
             strokeColor: Colors.white,
             child: Text(
               '${index + 1}',
-              style:GoogleFonts.robotoMono(
-          textStyle: TextStyle(
-            fontWeight: FontWeight.bold,
-            fontSize: 130,
-            color: Colors.black,
-            decoration: TextDecoration.none,
-          ),
-        ),
+              style: GoogleFonts.robotoMono(
+                textStyle: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 130,
+                  color: Colors.black,
+                  decoration: TextDecoration.none,
+                ),
+              ),
             ),
           ),
         )
