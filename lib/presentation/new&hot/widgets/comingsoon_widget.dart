@@ -38,13 +38,16 @@ class ComingSoon_Widget extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(
+              Container(
                 height: 200,
                 width:  size.width - 50,
+              
                 child: Vedio_Widget(
                   image: data.imagePath,
+                  
                 ),
               ),
+             
                Row(
                 children: [
                   Flexible(
@@ -59,7 +62,7 @@ class ComingSoon_Widget extends StatelessWidget {
                   ),
                   const Spacer(),
                   const Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 10),
+                    padding: EdgeInsets.symmetric(horizontal: 10,vertical: 10),
                     child: Row(
                       children: [
                         Column(

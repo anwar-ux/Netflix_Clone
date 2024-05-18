@@ -15,7 +15,8 @@ class Vedio_Widget extends StatelessWidget {
       children: [
         Image.network(
           imageBase+image,
-          fit: BoxFit.cover,
+        width: double.infinity,
+        fit: BoxFit.cover,
         ),
         Positioned(
           right: 10,
