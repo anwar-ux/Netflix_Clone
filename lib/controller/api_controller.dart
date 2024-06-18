@@ -1,5 +1,4 @@
 import 'dart:convert';
-
 import 'package:netflix/model/movie.dart';
 import 'package:http/http.dart' as http;
 
@@ -27,6 +26,7 @@ class MovieServices {
               .cast<Movie>();
         }
       } catch (e) {
+        // ignore: avoid_print
         print('error in calling');
       }
       mintries++;

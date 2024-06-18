@@ -90,7 +90,7 @@ class BackGroundCard extends StatelessWidget {
   TextButton _playButton() {
     return TextButton.icon(
       style: const ButtonStyle(
-          backgroundColor: MaterialStatePropertyAll(Colors.white)),
+          backgroundColor: WidgetStatePropertyAll(Colors.white)),
       onPressed: () {},
       icon: const Icon(
         Icons.play_arrow,
