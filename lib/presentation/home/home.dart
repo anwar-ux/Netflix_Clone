@@ -44,6 +44,7 @@ class _HomeState extends State<Home> {
   @override
   void initState() {
     super.initState();
+    scrollNotifier = ValueNotifier(true);
     getAllMovies();
   }
 
@@ -113,7 +114,7 @@ class _HomeState extends State<Home> {
                             end: Alignment.bottomCenter,
                             colors: [
                               Colors.black,
-                              Colors.black.withOpacity(0.1),
+                              Colors.black.withOpacity(0.0),
                             ],
                           ),
                         ),
@@ -148,15 +149,16 @@ class _HomeState extends State<Home> {
                                   const SizedBox(
                                     width: 10,
                                   ),
-                                  Container(
-                                    width: 30,
-                                    height: 30,
+                                  const Icon(
+                                    Icons.square,
+                                    size: 35,
                                     color: Colors.blue,
                                   ),
                                 ],
                               ),
                               const Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
                                 children: [
                                   Text(
                                     'TV Shows',

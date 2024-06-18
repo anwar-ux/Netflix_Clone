@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:netflix/model/movie.dart';
 import 'package:netflix/presentation/widgets/video_widget.dart';
 
+// ignore: must_be_immutable, camel_case_types
 class ComingSoon_Widget extends StatelessWidget {
   Movie data;
    ComingSoon_Widget({

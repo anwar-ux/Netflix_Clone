@@ -10,8 +10,10 @@ class AppBarWidget extends StatelessWidget {
         const SizedBox(
           width: 10,
         ),
-         Text(title,
-            style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold)),
+        Text(
+          title,
+          style: const TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
+        ),
         const Spacer(),
         const Icon(
           Icons.cast,
@@ -21,9 +23,9 @@ class AppBarWidget extends StatelessWidget {
         const SizedBox(
           width: 10,
         ),
-        Container(
-          width: 30,
-          height: 30,
+        const Icon(
+          Icons.square,
+          size: 35,
           color: Colors.blue,
         ),
         const SizedBox(

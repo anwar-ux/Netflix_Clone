@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:netflix/presentation/fastlaugh/widget/video_scroll_item.dart';
 
+// ignore: must_be_immutable
 class Fastlaugh extends StatelessWidget {
    Fastlaugh({super.key});
 
   List reellink = [
-    "https://assets.mixkit.co/videos/preview/mixkit-tree-with-yellow-flowers-1173-large.mp4",
-    "https://assets.mixkit.co/videos/preview/mixkit-mother-with-her-little-daughter-eating-a-marshmallow-in-nature-39764-large.mp4",
-    "https://assets.mixkit.co/videos/preview/mixkit-waves-in-the-water-1164-large.mp4",
-    "https://assets.mixkit.co/videos/preview/mixkit-two-avenues-with-many-cars-traveling-at-night-34562-large.mp4",
-    "https://assets.mixkit.co/videos/preview/mixkit-weeds-waving-in-the-breeze-1178-large.mp4"
+    "https://assets.mixkit.co/videos/1186/1186-720.mp4",
+    "https://assets.mixkit.co/videos/1191/1191-720.mp4",
+    "https://assets.mixkit.co/videos/1197/1197-720.mp4",
+    "https://assets.mixkit.co/videos/1185/1185-720.mp4",
+    "https://assets.mixkit.co/videos/1188/1188-720.mp4"
   ];
 
   @override

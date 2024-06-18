@@ -14,16 +14,18 @@ class NewHot extends StatefulWidget {
 List<Movie> nowPlaying = [];
 List<Movie> upcoming = [];
 
-Future<void> getAllMovies() async {
-  nowPlaying = await MovieServices.getNowplaying();
-  upcoming = await MovieServices.getupcoming();
-}
-
 class _NewHotState extends State<NewHot> {
   @override
   void initState() {
-    super.initState();
     getAllMovies();
+    super.initState();
+  }
+
+  Future<void> getAllMovies() async {
+    nowPlaying = await MovieServices.getNowplaying();
+    upcoming = await MovieServices.getupcoming();
+    if (!mounted) return; 
+    setState(() {});
   }
 
   @override
@@ -34,34 +36,34 @@ class _NewHotState extends State<NewHot> {
         appBar: PreferredSize(
           preferredSize: const Size.fromHeight(100),
           child: AppBar(
+            automaticallyImplyLeading: false,
             title: const Text(
               "New & Hot",
-              style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
+              style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold, color: Colors.white),
             ),
-            actions: [
-              const Icon(
+            actions: const [
+              Icon(
                 Icons.cast,
                 color: Colors.white,
                 size: 30,
               ),
-              const SizedBox(
+              SizedBox(
                 width: 10,
               ),
-              Container(
-                width: 30,
-                height: 3,
+              Icon(
+                Icons.square,
+                size: 35,
                 color: Colors.blue,
               ),
-              const SizedBox(
+              SizedBox(
                 width: 10,
               )
             ],
             bottom: const TabBar(
-              isScrollable: true,
               unselectedLabelColor: Colors.white,
-              unselectedLabelStyle:
-                  TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+              unselectedLabelStyle: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
               labelColor: Colors.black,
+              dividerColor: Colors.black,
               labelStyle: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
               indicator: BoxDecoration(
                   color: Colors.white,
@@ -90,7 +92,9 @@ class _NewHotState extends State<NewHot> {
 
 Widget _buildComingsoon() {
   return ListView.builder(
-    itemBuilder: (context, index) =>  ComingSoon_Widget(data:upcoming[index],),
+    itemBuilder: (context, index) => ComingSoon_Widget(
+      data: upcoming[index],
+    ),
     itemCount: upcoming.length,
   );
 }
@@ -98,7 +102,8 @@ Widget _buildComingsoon() {
 Widget _buildEveryonesWatching() {
   return ListView.builder(
     itemCount: nowPlaying.length,
-    itemBuilder: (context, index) =>  EveryonesWatching_Widget(data:nowPlaying[index],),
-    
+    itemBuilder: (context, index) => EveryonesWatching_Widget(
+      data: nowPlaying[index],
+    ),
   );
 }
